@@ -1,0 +1,24 @@
+
+.videocall-controls-panel{
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.video-controll-button-item{
+  margin:.8em;
+  padding: 1.1em;
+  border: none;
+  border-radius: 2em;
+  background-color: rgb(55, 134, 204);
+  color: white;
+  font-weight: bold;
+}
+
+.video-controll-button-item:hover{
+  background-color:rgb(17, 97, 167);
+  transition-timing-function: ease-in-out;
+  transition: background-color 0.6s;
+  opacity: 0.98;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+}

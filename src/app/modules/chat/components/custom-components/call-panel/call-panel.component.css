@@ -1,0 +1,37 @@
+
+/*  call panel */
+.call-panel{
+  margin-bottom: 0.5em;
+  display: flex;
+  border-radius: 0.4em;
+}
+
+.call-panel-avatar img{
+  cursor: pointer;
+  width: 2.4em;
+  height: 2.4em;
+  object-fit: cover;
+  padding-top: 10%;
+  padding-left: 10%;
+  border-radius: 50%;
+}
+
+.call-panel-username{
+  flex-grow: 6;
+  cursor: pointer;
+  font-weight: bold;
+  padding-top: 0.8em;
+  padding-left: 1.2em;
+}
+
+.call-panel-videocall{
+  padding-right: 1.5em;
+  padding-top: 0.5em;
+  cursor: pointer;
+}
+
+@media (max-width: 750px) {
+  .chat-message-item-text{
+    max-width: 16em;
+  }
+}

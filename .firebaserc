@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "chatsterv2"
+  },
+  "targets": {
+    "chatsterv2": {
+      "hosting": {
+        "chatster-angular-app": [
+          "chatsterv2"
+        ]
+      }
+    }
+  }
+}

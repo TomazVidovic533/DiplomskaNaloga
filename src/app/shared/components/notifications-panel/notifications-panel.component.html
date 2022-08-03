@@ -1,0 +1,9 @@
+<div class="answers-container">
+
+  <ng-container *ngFor="let dataObject of (dataSource$ | async)">
+
+    <app-notification-item [item]="dataObject"></app-notification-item>
+
+  </ng-container>
+
+</div>

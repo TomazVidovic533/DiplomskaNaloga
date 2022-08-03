@@ -1,0 +1,8 @@
+.videocall-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;          /* "auto" or "thin" */
+  scrollbar-color: #3d3d3d #dcdcdc;
+  overflow-y: auto;
+}

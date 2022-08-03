@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="wrapper-item">
+    <form [formGroup]="searchForm">
+      <app-custom-form-input-text [type]="'search-input'"
+                                  [placeholderValue]="searchInputLabel"
+                                  formControlName="queryString"></app-custom-form-input-text>
+
+      <!--      <app-custom-button (clickTrigger)="search($event)"
+                               [name]="'Search'"
+                               [btnType]="'search-section-btn'"></app-custom-button>-->
+    </form>
+  </div>
+</div>
+
+<app-gridview [dataSource]="queryResults$"
+              (gridItemClicked)="itemSelected($event[0],$event[1])"
+></app-gridview>
+

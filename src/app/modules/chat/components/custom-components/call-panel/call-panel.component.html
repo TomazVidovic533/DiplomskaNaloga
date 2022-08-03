@@ -1,0 +1,18 @@
+<div class="call-panel">
+
+  <div class="call-panel-avatar" routerLink="/app/rooms/{{(room | async)?.id ? (room | async)?.id : (roomData$ | async)?.id }}">
+    <img src="{{(room | async)?.avatar ? (room | async)?.avatar : (roomData$ | async)?.avatar}}"
+         alt="">
+  </div>
+
+  <div class="call-panel-username">
+    {{(room | async)?.name ? (room | async)?.name : (roomData$ | async)?.name }}
+  </div>
+
+  <ng-template [ngIf]=" !(room | async)?.is_private && (roomData$ | async)?.is_private && !(roomData$ | async)?.is_group ">
+    <div class="call-panel-videocall">
+      <lucide-icon [img]="videocall" style="cursor: pointer;" (click)="createCallRoom()"  class="svg"></lucide-icon>
+    </div>
+  </ng-template>
+
+</div>

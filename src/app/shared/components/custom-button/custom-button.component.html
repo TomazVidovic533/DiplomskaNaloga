@@ -1,0 +1,95 @@
+
+<ng-template [ngIf]="btnType=='form-btn'|| btnType==null">
+  <div class="field button-field">
+    <button type="button" class= "btn" (click)="triggerButton($event)" >{{name}}</button>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='search-btn'">
+  <div class="wrapper-search-btn">
+    <button type="button" class= "btn search" style="cursor: pointer" (click)="triggerButton($event)" >{{name}}</button>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='form-btn-google-sign-in'">
+  <div class="field button-field google">
+    <button class="btn" type="button" (click)="triggerButton($event)">
+      <img src="assets/google_logo.svg" alt="" class="google-img">
+      <span>Sign In with Google</span>
+    </button>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='form-btn-create'">
+  <div class="field button-field form-btn-create">
+    <button type="button" class="form-btn-create"(click)="triggerButton($event)">{{name}}</button>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='add-btn'">
+  <button class="add-btn" (click)="triggerButton($event)">
+    {{name}}
+  </button>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='start-convo-btn'">
+  <button class="start-convo-btn" (click)="triggerButton($event)">
+    <lucide-icon [img]="startConvo" class="svg"></lucide-icon>
+  </button>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='edit-btn'">
+  <button class="edit-btn" routerLink="edit" (click)="triggerButton($event)">
+    <lucide-icon [img]="edit" class="svg"></lucide-icon>
+  </button>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='join-btn'">
+  <button class="start-convo-btn"  (click)="triggerButton($event)">
+    <lucide-icon [img]="join" class="svg"></lucide-icon>
+  </button>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='request-btn'">
+  <button class="start-convo-btn"  (click)="triggerButton($event)">
+    <lucide-icon [img]="request" class="svg"></lucide-icon>
+  </button>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='leave-btn'">
+  <button class="delete-btn" routerLink="edit" (click)="triggerButton($event)">
+    <lucide-icon [img]="leave" class="svg"></lucide-icon>
+  </button>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='delete-btn'">
+  <button class="delete-btn" (click)="triggerButton($event)">
+    <lucide-icon [img]="delete" class="svg"></lucide-icon>
+  </button>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='action-btn'">
+  <button class="action-btn" (click)="triggerButton($event)">
+    {{name}}
+  </button>
+</ng-template>
+
+
+<ng-template [ngIf]="btnType=='send-message-btn'">
+  <button class="send-message-btn" (click)="triggerButton($event)">
+    {{name}}
+  </button>
+</ng-template>
+
+
+<ng-template [ngIf]="btnType=='search-section-btn'">
+  <button class="wrapper-search-btn" (click)="triggerButton($event)">
+    {{name}}
+  </button>
+</ng-template>
+
+<ng-template [ngIf]="btnType=='disabled-btn'">
+  <div class="field button-field disabled-btn">
+    <button type="button" class="disabled-btn" (click)="triggerButton($event)">{{name}}</button>
+  </div>
+</ng-template>

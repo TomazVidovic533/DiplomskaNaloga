@@ -1,0 +1,129 @@
+<ng-container *ngIf="roomData$ | async; let room">
+  <app-profile-header [avatar]="room.avatar" [fullName]="room.name"></app-profile-header>
+
+  <div class="profile-action-bar">
+
+    <ng-template [ngIf]="!room.is_private">
+
+      <app-custom-button
+        routerLink="/app/chat/{{room.id}}"
+        (clickTrigger)="joinRoom($event)"
+        [name]="'Join'"
+        [btnType]="'join-btn'"></app-custom-button>
+
+
+      <ng-template [ngIf]="isViewingUserMember">
+        <app-custom-button
+          routerLink="/app/rooms/{{room.id}}"
+          (clickTrigger)="leaveRoom($event)"
+          [name]="'Leave'"
+          [btnType]="'leave-btn'"></app-custom-button>
+      </ng-template>
+
+      <ng-template [ngIf]="room.owner==myId">
+        <app-custom-button
+          [name]="'Edit'"
+          [btnType]="'edit-btn'"></app-custom-button>
+
+        <app-custom-button
+          (clickTrigger)="delete($event)"
+          [name]="'Delete'"
+          [btnType]="'delete-btn'"></app-custom-button>
+      </ng-template>
+    </ng-template>
+
+
+    <ng-template [ngIf]="room.is_private">
+
+      <ng-template [ngIf]="room.owner!=myId">
+        <app-custom-button (clickTrigger)="requestAccessToRoom($event)"
+                           [name]="'Request Access'"
+                           [btnType]="'request-btn'"></app-custom-button>
+      </ng-template>
+
+      <ng-template [ngIf]="isViewingUserMember">
+        <app-custom-button
+          routerLink="/app/rooms/{{room.id}}"
+          (clickTrigger)="leaveRoom($event)"
+          [name]="'Leave'"
+          [btnType]="'leave-btn'"></app-custom-button>
+      </ng-template>
+
+      <ng-template [ngIf]="room.owner==myId">
+        <app-custom-button
+          [name]="'Edit'"
+          [btnType]="'edit-btn'"></app-custom-button>
+      </ng-template>
+
+      <ng-template [ngIf]="room.owner==myId">
+        <app-custom-button
+          (clickTrigger)="delete($event)"
+          [name]="'Delete'"
+          [btnType]="'delete-btn'"></app-custom-button>
+      </ng-template>
+    </ng-template>
+
+  </div>
+
+
+  <div class="profile-content-container">
+
+    <app-profile-information-item [label]="createdAtLabel"
+                                  [content]="'date'" [date]="room?.created_at"></app-profile-information-item>
+
+    <app-profile-information-item [label]="bioLabel"
+                                  [content]="room.bio"></app-profile-information-item>
+
+    <ng-template [ngIf]="room.is_private">
+      <app-profile-information-item [label]="typeLabel"
+                                    [content]="privateRoomLabel"></app-profile-information-item>
+    </ng-template>
+
+    <ng-template [ngIf]="!room.is_private">
+      <app-profile-information-item [label]="typeLabel"
+                                    [content]="publicRoomLabel"></app-profile-information-item>
+    </ng-template>
+  </div>
+
+  <ng-template [ngIf]="isViewingUserMember">
+    <app-table-view
+      [isOwner]="room.owner==myId"
+      [deleteActionHeader]="tableFilesDelActionLbl"
+      [nameHeader]="tableFilesNameHeaderLbl"
+      [title]="tableFilesTitleLbl"
+      itemType="file"
+      [viewActionHeader]="tableFilesViewActionLbl"
+      contentHeader=""
+      [dataSource$]="roomFilesShared$"
+      (onViewTriggered)="goToUrl($event[0],$event[1])"
+      (onDeleteTriggered)="deleteFile($event[0],$event[1])"></app-table-view>
+  </ng-template>
+
+
+  <ng-template [ngIf]="room.owner==myId">
+    <app-table-view
+      [isOwner]="room.owner==myId"
+      itemType="request"
+      [reactionActionHeader]="tableReqReactionActionLbl"
+      [deleteActionHeader]="tableReqDelActionLbl"
+      [nameHeader]="tableReqNameHeaderLbl"
+      [title]="tableReqTitleLbl"
+      [viewActionHeader]="tableReqViewActionLbl"
+      contentHeader=""
+      [dataSource$]="roomRequests$"
+      (onViewTriggered)="viewProfile($event[0],$event[1])"
+      (onAcceptTriggered)="acceptRequest($event[0],$event[1])"
+      (onDeleteTriggered)="deleteRequest($event[0],$event[1])"></app-table-view>
+
+  </ng-template>
+
+  <div>
+    <h2>{{roomMembersLabel}}</h2>
+    <app-gridview [dataSource]="roomMembers$"
+                  (gridItemClicked)="memberSelected($event[0],$event[1])"></app-gridview>
+  </div>
+</ng-container>
+
+
+
+

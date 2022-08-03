@@ -1,0 +1,53 @@
+<header>
+  <div class="logo" routerLink="home">
+    Chatster
+  </div>
+  <nav>
+    <ul class="nav__links">
+      <li>
+        <a routerLink="home">
+          <lucide-icon [img]="home" class="svg"></lucide-icon>
+        </a>
+      </li>
+      <li>
+        <a routerLink="chat">
+          <lucide-icon [img]="chat" class="svg"></lucide-icon>
+        </a>
+      </li>
+      <li>
+        <a routerLink="people">
+          <lucide-icon [img]="people" class="svg"></lucide-icon>
+        </a>
+      </li>
+      <li>
+        <a routerLink="rooms">
+          <lucide-icon [img]="community" class="svg"></lucide-icon>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <a class="cta" routerLink="people/{{(userId | async)?.uid}}">
+    <div class="dropdown">
+        <img class="rounded-image dropbtn"
+             src="{{(userData$ | async)?.avatar}}"
+             width="40" height="40" alt="logo">
+      <div class="dropdown-content">
+        <a (click)="logOut()"> Logout</a>
+      </div>
+    </div>
+
+  </a>
+  <p class="menu cta" (click)="toggleMenu()"><lucide-icon [img]="menu" class="svg"></lucide-icon></p>
+</header>
+<div class="overlay" [ngClass]="isOpenedOnMobile ? '': 'overlay--active' ">
+  <a class="close" (click)="toggleMenu()">&times;</a>
+  <div class="overlay__content">
+    <a routerLink="home" (click)="toggleMenu()"><lucide-icon [img]="home" class="svg"></lucide-icon> Home</a>
+    <a routerLink="{{profilePath}}" (click)="toggleMenu()"><lucide-icon [img]="profile" class="svg"></lucide-icon> Profile</a>
+    <a routerLink="chat" (click)="toggleMenu()"><lucide-icon [img]="chat" class="svg"></lucide-icon> Chat</a>
+    <a routerLink="people" (click)="toggleMenu()"><lucide-icon [img]="people" class="svg"></lucide-icon> People</a>
+    <a routerLink="rooms" (click)="toggleMenu()"><lucide-icon [img]="community" class="svg"></lucide-icon> Rooms</a>
+    <a (click)="logOut()"><lucide-icon [img]="logout" class="svg"></lucide-icon> Logout</a>
+  </div>
+</div>

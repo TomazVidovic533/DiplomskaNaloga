@@ -1,0 +1,64 @@
+<ng-container *ngIf="userData$ | async; let user">
+  <app-profile-header [avatar]="user.avatar" [fullName]="user.name"></app-profile-header>
+
+  <ng-template [ngIf]="user.id!=myId">
+    <div class="profile-action-bar">
+      <app-custom-button (clickTrigger)="startConversation($event)"
+                         [name]="'Start Conversation'"
+                         [btnType]="'start-convo-btn'"></app-custom-button>
+    </div>
+  </ng-template>
+
+  <ng-template [ngIf]="user.id==myId">
+    <div class="profile-action-bar">
+      <app-custom-button (clickTrigger)="edit($event)"
+                         [name]="'Edit'"
+                         [btnType]="'edit-btn'"></app-custom-button>
+
+      <app-custom-button (clickTrigger)="delete($event)"
+                         [name]="'Delete'"
+                         [btnType]="'delete-btn'"></app-custom-button>
+    </div>
+  </ng-template>
+
+
+
+  <div class="profile-content-container">
+
+    <app-profile-information-item [label]="'profile.created_at'"
+                                  [content]="'date'" [date]="user?.created_at"></app-profile-information-item>
+
+    <app-profile-information-item [label]="'profile.username'"
+                                  [content]="user.username"></app-profile-information-item>
+
+    <app-profile-information-item [label]="'profile.email'"
+                                  [content]="user.email"></app-profile-information-item>
+
+    <app-profile-information-item [label]="'profile.gender'"
+                                  [content]="user.gender"></app-profile-information-item>
+
+    <app-profile-information-item [label]="'profile.language'"
+                                  [content]="user.language"></app-profile-information-item>
+
+    <app-profile-information-item [label]="'profile.bio'"
+                                  [content]="user.bio"></app-profile-information-item>
+
+    <ng-template [ngIf]="user.is_pro_member== null||user.is_pro_member == undefined || user.is_pro_member == false">
+      <app-profile-information-item [label]="'profile.pro'"
+                                    [content]="'Not a PRO member'"></app-profile-information-item>
+    </ng-template>
+
+    <ng-template [ngIf]="user.is_pro_member">
+      <app-profile-information-item [label]="'profile.pro'"
+                                    [content]="'PRO member status active'"></app-profile-information-item>
+    </ng-template>
+
+  </div>
+
+  <div>
+    <h2>{{'profile.users_rooms' | translate}}</h2>
+    <app-gridview [dataSource]="usersRooms$"
+                  (gridItemClicked)="roomSelected($event[0],$event[1])"></app-gridview>
+  </div>
+
+</ng-container>

@@ -1,0 +1,9 @@
+<div #scrollBar class="message-window" fileDrop
+     (isFileOver)="showFileDetection($event)"
+     (fileHasBeenDropped)="dropFiles($event)"
+     [class.hovering]="isFileOverMessageWindow">
+  <ng-container *ngFor="let dataObject of (chatMessages$ | async)">
+    <app-message [messageData]="dataObject" [myUserId]="myId" [roomId]="roomId"></app-message>
+  </ng-container>
+</div>
+

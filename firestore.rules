@@ -1,0 +1,139 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isEmailVerified() {
+      return request.auth.token.email_verified;
+    }
+
+    function isRoomMember(roomId, memberId) {
+      let path = /databases/$(database)/documents/rooms/$(roomId)/members/$(memberId);
+      return exists(path);
+    }
+
+    function getRoomData(roomId) {
+      return get(/databases/$(database)/documents/rooms/$(roomId)).data;
+    }
+
+    function getCallData(callId) {
+      return get(/databases/$(database)/documents/calls/$(callId)).data;
+    }
+
+    function isCallMember(calleeId, creatorId){
+      return request.auth.uid == calleeId || request.auth.uid == creatorId;
+    }
+
+    match /users/{userId}/contacts/{contactId} {
+      allow read, write, update, delete: if isSignedIn()
+                                            && isEmailVerified();
+    }
+
+    match /users/{userId}/rooms/{roomId} {
+      allow read, write, update, delete: if isSignedIn()
+                                            && isEmailVerified();
+    }
+
+    match /users/{userId} {
+      allow read, write: if isSignedIn()
+                            && isEmailVerified();
+
+      allow update, delete: if isOwner(userId)
+                               && isSignedIn()
+                               && isEmailVerified();
+    }
+
+    match /rooms/{roomId} {
+      allow read, write: if isSignedIn()
+                            && isEmailVerified();
+
+      allow update, delete: if isOwner(resource.data.owner)
+                               && isSignedIn()
+                               && isEmailVerified();
+    }
+
+    match /rooms/{roomId}/members/{memberId} {
+      allow read, write, update, delete: if isSignedIn()
+                                            && isEmailVerified();
+    }
+
+    match /rooms/{roomId}/requests/{requestId} {
+      allow read, create: if isSignedIn() && isEmailVerified();
+      allow update, delete: if isSignedIn()
+                               && isEmailVerified()
+                               && isOwner(getRoomData(roomId).owner);
+    }
+
+    match /room_messages/{roomId}/messages/{messageId} {
+      allow read, update, delete, write: if isSignedIn()
+                                            && isEmailVerified()
+                                            && isRoomMember(roomId, request.auth.uid);
+    }
+
+
+    match /rooms_files/{roomId}/files/{fileId} {
+      allow read, update, delete, write: if isSignedIn()
+                                            && isEmailVerified()
+                                            && isRoomMember(roomId, request.auth.uid);
+    }
+
+    match /files/{fileId} {
+      allow read: if isSignedIn()
+                     && isEmailVerified();
+
+      allow update, write: if isSignedIn()
+                              && isEmailVerified()
+                              && isOwner(request.resource.data.ownerId);
+
+      allow delete: if isSignedIn()
+                       && isEmailVerified()
+                       && isOwner(resource.data.ownerId);
+    }
+
+    match /call_invitations/{userId} {
+      allow update, delete, write, read: if isSignedIn()
+                                            && isEmailVerified();
+    }
+
+    match /call_invitations/{userId}/calls/{callId} {
+      allow update, write: if isSignedIn()
+                              && isEmailVerified();
+      allow read, delete: if isSignedIn()
+                             && isEmailVerified()
+                             && isOwner(userId);
+    }
+
+    match /calls/{callId} {
+      allow create: if isSignedIn()
+                       && isEmailVerified();
+
+      allow read, update, delete: if isSignedIn()
+                                     && isEmailVerified()
+                                     && isCallMember(getCallData(callId).calleeId,
+        getCallData(callId).creatorId);
+
+    }
+
+    match /calls/{callId}/answer_candidates/{answerCandidate} {
+      allow write, read, update, delete: if isSignedIn()
+                                            && isEmailVerified()
+                                            && isCallMember(getCallData(callId).calleeId,
+        getCallData(callId).creatorId);
+    }
+
+    match /calls/{callId}/offer_candidates/{offerCandidate} {
+      allow write, read, update, delete: if isSignedIn()
+                                            && isEmailVerified()
+                                            && isCallMember(getCallData(callId).calleeId,
+        getCallData(callId).creatorId);
+    }
+
+  }
+}

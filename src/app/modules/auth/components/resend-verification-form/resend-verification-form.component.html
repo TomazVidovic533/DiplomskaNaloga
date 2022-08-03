@@ -1,0 +1,24 @@
+<section class="container forms">
+  <div class="form login">
+    <div class="form-content">
+      <header>You have to verify your account</header>
+      <form >
+
+        <div>
+          <i>If you did not recieve email, you can request verification again.</i>
+        </div>
+
+        <app-custom-button (clickTrigger)="continueToApplication($event)"
+                           [name]="'Continue to application'"
+                           [btnType]="'form-btn'"></app-custom-button>
+
+        <app-custom-button (clickTrigger)="resendVerificationEmail($event)"
+                           [name]="'Send Verification Email'"
+                           [btnType]="'form-btn'"></app-custom-button>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>

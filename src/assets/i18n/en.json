@@ -1,0 +1,84 @@
+{
+
+  "welcome-string": "Welcome to chat platform Chatster!",
+  "profile" : {
+    "username" : "Username",
+    "email" : "Email",
+    "name" : "Name",
+    "gender" : "Gender",
+    "language" : "Language",
+    "room_members" : "Room's Members",
+    "users_rooms" : "User's rooms",
+    "private_room" : "Private Room",
+    "public_room" : "Public Room",
+    "created_at": "Create At",
+    "type": "Type",
+    "bio": "Description",
+    "pro": "PRO member",
+    "male": "Male",
+    "female": "Female",
+    "slovene": "Slovene",
+    "english": "English"
+  },
+  "search_users": "Search for users...",
+  "search_rooms": "Search for rooms...",
+  "create_room_btn": "Create Room",
+  "join_room_btn": "Join Room",
+  "request_room_btn": "Request Access",
+  "edit_room_string": "Edit Room",
+  "edit_profile_string": "Edit Profile",
+  "avatar-btn": "Choose avatar",
+  "tableview-requests" : {
+    "reaction_action_header": "Accept Request",
+    "delete_action_header": "Delete Request",
+    "name_header": "Username",
+    "view_action_header": "See User's Profile",
+    "title": "User Requests"
+  },
+  "tableview-files" : {
+    "delete_action_header": "Delete File",
+    "name_header": "File Name",
+    "view_action_header": "See Content",
+    "title": "Shared Files"
+  },
+
+  "home": {
+    "your-contacts": "Your Contacts"
+  },
+  "features": {
+    "title": "Features",
+    "search": {
+      "title": "Search",
+      "text": "Search for new people and rooms"
+    },
+    "videochat": {
+      "title": "Video call",
+      "text": "Create video call with your friend."
+    },
+    "chat": {
+      "title": "Chat",
+      "text": "Chat with friends and meet new people"
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "text": "If you want to use extra functionalities take a look at our additional services and upgrade your account.",
+    "basic": {
+      "title": "Basic",
+      "line1": "Chat with other people.",
+      "line2": "Create rooms and chat together.",
+      "line3": "Share files inside of conversations.",
+      "line4": "Search people and rooms in realtime.",
+      "status_active": "Already active"
+    },
+    "advance": {
+      "title": "Napredno",
+      "line1": "Everything from  Free plan included.",
+      "line2": "Unlimited number of private calls.",
+      "line3": "You pay only once.",
+      "line4": "Active forever.",
+      "status_active": "Already active",
+      "status_inactive": "Activate here"
+    }
+  }
+}

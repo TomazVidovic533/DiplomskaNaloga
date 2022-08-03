@@ -1,0 +1,24 @@
+<div class="room-list-item" routerLink="{{roomData.room_id != undefined ? roomData.room_id : roomData.id }}" (click)="enter(roomData.id,roomData.user_id)">
+  <div class="room-list-item-header">
+    <img class="room-list-item-avatar"
+         src="{{roomData.avatar}}">
+  </div>
+  <div class="room-list-item-content">
+    <div class="room-list-item-content-header">
+      <div class="room-list-item-content-title">
+        {{roomData.name}}
+      </div>
+
+    </div>
+    <div class="room-list-item-text">
+      <ng-template [ngIf]="roomData.recent_message=='' || roomData.recent_message==undefined">
+        No messages
+      </ng-template>
+      <ng-template [ngIf]="roomData.recent_message!=''">
+        {{roomData.recent_message | ShortenText: 15}}
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+

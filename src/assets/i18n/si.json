@@ -1,0 +1,83 @@
+{
+  "welcome-string": "Pozdravljen v spletni klepetalnici Chatster!",
+  "profile": {
+    "username": "Uporabniško ime",
+    "email": "Elektronski naslov",
+    "name": "Ime",
+    "gender": "Spol",
+    "language": "Jezik",
+    "private_room": "Zasebna soba",
+    "users_rooms": "Uporabnikove sobe",
+    "room_members": "Člani sobe",
+    "public_room": "Javna soba",
+    "created_at": "Ustvarjeno dne",
+    "type": "Vrsta sobe",
+    "bio": "Opis",
+    "pro": "PRO uporabnik",
+    "male": "Moški",
+    "female": "Female",
+    "slovene": "Sloveščina",
+    "english": "Angleščina"
+  },
+  "search_users": "Išči po uporabnikih....",
+  "search_rooms": "Išči po sobah....",
+  "create_room_string": "Ustvari novo sobo",
+  "create_room_btn": "Ustvari sobo",
+  "join_room_btn": "Pridruži se sobi",
+  "request_room_btn": "Zahtevaj dostop",
+  "edit_room_string": "Uredi sobo",
+  "edit_profile_string": "Uredi profil",
+  "avatar-btn": "Izberi sliko",
+  "tableview-requests": {
+    "reaction_action_header": "Sprejmi",
+    "delete_action_header": "Izbriši",
+    "name_header": "Uporabniško ime",
+    "view_action_header": "Poglej Profil",
+    "title": "Prošnje za sprejem"
+  },
+  "tableview-files": {
+    "delete_action_header": "Izbriši",
+    "name_header": "Ime datoteke",
+    "view_action_header": "Odpri vsebino",
+    "title": "Deljene datoteke"
+  },
+  "home": {
+    "your-contacts": "Tvoji stiki"
+  },
+  "features": {
+    "title": "Naše storitve",
+    "search": {
+      "title": "Iskanje",
+      "text": "Poišči ljudi in sobe ter ustvari klepet."
+    },
+    "videochat": {
+      "title": "Video klic",
+      "text": "Ustvari videoklic s prijateljem."
+    },
+    "chat": {
+      "title": "Klepet",
+      "text": "Klepetaj s prijatelji in spoznaj nove ljudi."
+    }
+  },
+  "pricing": {
+    "title": "Cenik",
+    "text": "Če želite uporabljati dodatne funkcionalnosti, si oglejte naše dodatne storitve in nadgradite svoj račun.",
+    "basic": {
+      "title": "Osnovno",
+      "line1": "Klepetaj z drugimi ljudmi.",
+      "line2": "Ustvarjaj sobe in klepetaj skupaj.",
+      "line3": "Deli datoteke znotraj sobe.",
+      "line4": "Poišči ljudi in sobe.",
+      "status_active": "Že aktivirano"
+    },
+    "advance": {
+      "title": "Napredno",
+      "line1": "Vse iz osnovnega načrta..",
+      "line2": "Neomejeno število zasebnih klicev.",
+      "line3": "Enkratno plačilo.",
+      "line4": "Aktivno za vedno",
+      "status_active": "Že aktivirano",
+      "status_inactive": "Nakup"
+    }
+  }
+}

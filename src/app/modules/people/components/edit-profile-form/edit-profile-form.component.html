@@ -1,0 +1,61 @@
+<div class="container forms">
+  <div class="form login">
+    <div class="form-content">
+      <header>Edit room {{userData?.name || ''}}</header>
+      <form action="#" [formGroup]="editUserForm">
+
+        <app-custom-form-input-text [type]="'text'"
+                                    formControlName="name"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="editUserForm.get('name')?.errors">
+          <app-error-form-notification [formControlInput]="editUserForm.get('name')"
+                                       [inputLabel]="'Name'"></app-error-form-notification>
+        </ng-template>
+
+
+        <app-custom-form-input-text [type]="'text'"
+                                    formControlName="username"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="editUserForm.get('username')?.errors">
+          <app-error-form-notification [formControlInput]="editUserForm.get('username')"
+                                       [inputLabel]="'Username'"></app-error-form-notification>
+        </ng-template>
+
+
+        <app-custom-form-input-text [type]="'select'"
+                                    formControlName="gender"
+                                    [optionItems]="genderOptions"></app-custom-form-input-text>
+
+        <app-custom-form-input-text [type]="'select'"
+                                    formControlName="language"
+                                    [optionItems]="languageOptions"></app-custom-form-input-text>
+
+
+        <app-custom-form-input-text [type]="'text'"
+                                    formControlName="bio"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="editUserForm.get('bio')?.errors">
+          <app-error-form-notification [formControlInput]="editUserForm.get('bio')"
+                                       [inputLabel]="'Bio'"></app-error-form-notification>
+        </ng-template>
+      </form>
+      <div class="line"></div>
+
+      <div class="media-options">
+
+        <ng-template [ngIf]="editUserForm.valid">
+        <app-custom-button (clickTrigger)="editUser($event)"
+                             [name]="'Edit User'"
+                           [btnType]="'form-btn-create'"></app-custom-button>
+        </ng-template>
+
+        <ng-template [ngIf]="!editUserForm.valid">
+          <app-custom-button (clickTrigger)="invalid($event)"
+                             [name]="'Edit user'"
+                             [btnType]="'disabled-btn'"></app-custom-button>
+        </ng-template>
+      </div>
+    </div>
+
+  </div>
+</div>

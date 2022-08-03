@@ -1,0 +1,59 @@
+<div class="container forms">
+  <div class="form login">
+    <div class="form-content">
+      <header>{{createRoomStringLabel}}</header>
+      <form action="#" [formGroup]="createRoomForm">
+
+        <app-custom-form-input-text [type]="'text'"
+                                    [placeholderValue]="nameLabel"
+                                    formControlName="name"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="createRoomForm.get('name')?.errors">
+          <app-error-form-notification [formControlInput]="createRoomForm.get('name')"
+                                       [inputLabel]="'Name'"></app-error-form-notification>
+        </ng-template>
+
+        <app-custom-file-upload formControlName="avatar"></app-custom-file-upload>
+
+        <ng-template [ngIf]="createRoomForm.get('avatar')?.errors">
+          <app-error-form-notification [formControlInput]="createRoomForm.get('avatar')"
+                                       [inputLabel]="'Avatar'"></app-error-form-notification>
+        </ng-template>
+
+        <app-custom-form-input-text [type]="'select'"
+                                    [placeholderValue]="nameLabel"
+                                    formControlName="is_private"
+                                    [optionItems]="isPrivateOptions"></app-custom-form-input-text>
+
+        <app-custom-form-input-text [type]="'text'"
+                                    [placeholderValue]="bioLabel"
+                                    formControlName="bio"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="createRoomForm.get('bio')?.errors">
+          <app-error-form-notification [formControlInput]="createRoomForm.get('bio')"
+                                       [inputLabel]="'Bio'"></app-error-form-notification>
+        </ng-template>
+
+      </form>
+
+      <div class="line"></div>
+
+      <div class="media-options">
+
+        <ng-template [ngIf]="createRoomForm.valid">
+        <app-custom-button (clickTrigger)="createNewRoom($event)"
+                           [name]="createRoomBtnLabel"
+                           [btnType]="'form-btn-create'"></app-custom-button>
+        </ng-template>
+
+        <ng-template [ngIf]="!createRoomForm.valid">
+          <app-custom-button (clickTrigger)="invalid($event)"
+                             [name]="createRoomBtnLabel"
+                             [btnType]="'disabled-btn'"></app-custom-button>
+        </ng-template>
+
+      </div>
+    </div>
+
+  </div>
+</div>

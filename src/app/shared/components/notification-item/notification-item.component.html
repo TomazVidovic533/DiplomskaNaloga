@@ -1,0 +1,19 @@
+<div class="answer-container">
+  <div class="holder">
+    <div class="image-header">
+      <img src="{{item?.avatar}}"
+           alt="nature">
+    </div>
+    <div class="image-content">
+      <div class="content-item">
+        {{item.name}} ...is calling {{item?.callId}}
+      </div>
+      <div class="content-item accept-call" (click)="acceptCall(item?.callId || '',item?.id || '')">
+        Accept
+      </div>
+      <div class="content-item deny-call" (click)="denyCall(item?.callId || '',item?.id || '' )">
+        Deny
+      </div>
+    </div>
+  </div>
+</div>

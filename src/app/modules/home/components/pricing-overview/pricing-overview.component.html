@@ -1,0 +1,35 @@
+
+<h2 style="text-align:center">{{'pricing.title' | translate}}</h2>
+<p style="text-align:center"> {{'pricing.text' | translate}}</p>
+
+
+<div class="columns">
+  <ul class="price">
+    <li class="header">{{'pricing.basic.title' | translate}}</li>
+    <li class="grey">{{ 0 | currency:'EUR'}}</li>
+    <li>{{'pricing.basic.line1' | translate}}</li>
+    <li>{{'pricing.basic.line2' | translate}}</li>
+    <li>{{'pricing.basic.line3' | translate}}</li>
+    <li>{{'pricing.basic.line4' | translate}}</li>
+    <li class="grey"><i>{{'pricing.basic.status_active' | translate}}</i></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header" style="background-color:#397ef6">{{'pricing.advance.title' | translate}}</li>
+    <li class="grey">{{ 10 | currency:'EUR'}}</li>
+    <li>{{'pricing.advance.line1' | translate}}</li>
+    <li>{{'pricing.advance.line2' | translate}}</li>
+    <li>{{'pricing.advance.line3' | translate}}</li>
+    <li>{{'pricing.advance.line4' | translate}}</li>
+    <ng-template [ngIf]="user?.is_pro_member">
+      <li class="grey">{{'pricing.advance.status_active' | translate}}</li>
+    </ng-template>
+    <ng-template [ngIf]="!user?.is_pro_member">
+      <li class="grey"><a (click)="createPurchaseSession()" class="activate-link">{{'pricing.advance.status_inactive' | translate}}</a></li>
+    </ng-template>
+  </ul>
+</div>
+
+

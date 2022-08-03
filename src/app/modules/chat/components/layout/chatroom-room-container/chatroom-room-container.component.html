@@ -1,0 +1,5 @@
+<div class="user-panel-container">
+  <ng-container *ngFor="let dataObject of (rooms$ | async)">
+    <app-room-list-item [roomData]="dataObject" routerLink="{{dataObject.id}}}"></app-room-list-item>
+  </ng-container>
+</div>

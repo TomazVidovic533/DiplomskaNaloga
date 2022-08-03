@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Arima', cursive;
+  src: url(assets/arima-font.ttf) format("opentype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+*::-webkit-scrollbar-track {
+  background: #dcdcdc;
+  border-radius: 0.1em;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #dcdcdc;
+  border-radius: 0.6em;
+  border: 3px solid #3d3d3d;
+}
+
+:root{
+  --navbar-color: #1877f2;
+  --file-upload-btn-color: rgba(250, 200, 100, 0.96);
+  --submit-btn-color: #3189c7;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arima', cursive;
+  background-color: #f0f2f5;
+}
+
+

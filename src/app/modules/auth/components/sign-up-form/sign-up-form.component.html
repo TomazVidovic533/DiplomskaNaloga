@@ -1,0 +1,110 @@
+<section class="container forms">
+  <div class="form signup">
+    <div class="form-content">
+      <header>Create account</header>
+      <form action="#" [formGroup]="signUpForm">
+
+        <app-custom-form-input-text [type]="'text'"
+                                    [placeholderValue]="'Full name'"
+                                    formControlName="name"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="signUpForm.get('name')?.errors">
+          <app-error-form-notification [formControlInput]="signUpForm.get('name')"
+                                       [inputLabel]="'Full name'"></app-error-form-notification>
+        </ng-template>
+
+        <app-custom-form-input-text [type]="'text'"
+                                    [placeholderValue]="'Username'"
+                                    formControlName="username"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="signUpForm.get('username')?.errors">
+          <app-error-form-notification [formControlInput]="signUpForm.get('username')"
+                                       [inputLabel]="'Username'"></app-error-form-notification>
+        </ng-template>
+
+        <app-custom-form-input-text [type]="'email'"
+                                    [placeholderValue]="'Email'"
+                                    formControlName="email"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="signUpForm.get('email')?.errors">
+          <app-error-form-notification [formControlInput]="signUpForm.get('email')"
+                                       [inputLabel]="'Email'"></app-error-form-notification>
+        </ng-template>
+
+        <app-custom-form-input-text [type]="'select'"
+                                    [placeholderValue]="'Gender'"
+                                    formControlName="gender"
+                                    [optionItems]="genderOptions"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="signUpForm.get('gender')?.errors">
+          <app-error-form-notification [formControlInput]="signUpForm.get('gender')"
+                                       [inputLabel]="'Gender'"></app-error-form-notification>
+        </ng-template>
+
+        <app-custom-form-input-text [type]="'select'"
+                                    [placeholderValue]="'Language'"
+                                    formControlName="language"
+                                    [optionItems]="languageOptions"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="signUpForm.get('language')?.errors">
+          <app-error-form-notification [formControlInput]="signUpForm.get('language')"
+                                       [inputLabel]="'Language'"></app-error-form-notification>
+        </ng-template>
+
+        <app-custom-file-upload formControlName="avatar"></app-custom-file-upload>
+
+        <ng-template [ngIf]="signUpForm.get('avatar')?.errors">
+          <app-error-form-notification [formControlInput]="signUpForm.get('avatar')"
+                                       [inputLabel]="'Avatar'"></app-error-form-notification>
+        </ng-template>
+
+        <app-custom-form-input-text [type]="'text'"
+                                    [placeholderValue]="'Bio'"
+                                    formControlName="bio"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="signUpForm.get('bio')?.errors">
+          <app-error-form-notification [formControlInput]="signUpForm.get('bio')"
+                                       [inputLabel]="'Bio'"></app-error-form-notification>
+        </ng-template>
+
+        <app-custom-form-input-text [type]="'password'"
+                                    [placeholderValue]="'Password'"
+                                    formControlName="password"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="signUpForm.get('password')?.errors">
+          <app-error-form-notification [formControlInput]="signUpForm.get('password')"
+                                       [inputLabel]="'Password'"></app-error-form-notification>
+        </ng-template>
+
+        <ng-template [ngIf]="signUpForm.valid">
+        <app-custom-button (clickTrigger)="signUpWithEmailAndPassword($event)"
+                           [name]="'Sign Up'"
+                           [btnType]="'form-btn'"></app-custom-button>
+        </ng-template>
+
+        <ng-template [ngIf]="!signUpForm.valid">
+          <app-custom-button (clickTrigger)="invalid($event)"
+                             [name]="'Sign Up'"
+                             [btnType]="'disabled-btn'"></app-custom-button>
+        </ng-template>
+      </form>
+
+      <div class="form-link">
+        <span>Already have an account? <a routerLink="/auth/sign-in" class="link login-link">Sign In</a></span>
+      </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="media-options">
+
+      <app-custom-button (clickTrigger)="signInGoogle($event)"
+                         [name]="'Sign Up'"
+                         [btnType]="'form-btn-google-sign-in'"></app-custom-button>
+
+    </div>
+
+  </div>
+</section>
+
+

@@ -1,0 +1,24 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { GridCardComponent } from './grid-card.component';
+
+describe('GridCardComponent',
+  () => {
+    let component: GridCardComponent<any>;
+    let fixture: ComponentFixture<GridCardComponent<any>>;
+
+    beforeEach(async () => {
+      await TestBed.configureTestingModule({
+        declarations: [GridCardComponent]
+      })
+        .compileComponents();
+
+      fixture = TestBed.createComponent(GridCardComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    });
+
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+  });

@@ -1,0 +1,49 @@
+
+<section class="container forms">
+  <div class="form login">
+    <div class="form-content">
+      <header>Welcome to Chatster</header>
+      <form action="#" [formGroup]="signInForm">
+
+        <app-custom-form-input-text [type]="'email'"
+                                    [placeholderValue]="'Email'"
+                                    formControlName="email"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="signInForm.get('email')?.errors && checkErrors">
+          <app-error-form-notification [formControlInput]="signInForm.get('email')"
+                                       [inputLabel]="'email'"></app-error-form-notification>
+        </ng-template>
+
+        <app-custom-form-input-text [type]="'password'"
+                                    [placeholderValue]="'Password'"
+                                    formControlName="password"></app-custom-form-input-text>
+
+        <ng-template [ngIf]="signInForm.get('password')?.errors && checkErrors">
+          <app-error-form-notification [formControlInput]="signInForm.get('password')"
+                                       [inputLabel]="'Password'"></app-error-form-notification>
+        </ng-template>
+
+        <app-custom-button (clickTrigger)="signInWithEmailAndPassword($event)"
+                           [name]="'Sign In'"
+                           [btnType]="'form-btn'"></app-custom-button>
+
+      </form>
+
+      <div class="form-link">
+        <span>Don't have an account? <a routerLink="/auth/sign-up" class="link signup-link">Signup</a></span>
+      </div>
+      <div class="form-link">
+        <span>Forgot password? <a routerLink="/auth/forgot-password" class="link signup-link">Reset Password</a></span>
+      </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="media-options">
+
+      <app-custom-button (clickTrigger)="signInGoogle($event)"
+                         [name]="'Sign In'"
+                         [btnType]="'form-btn-google-sign-in'"></app-custom-button>
+    </div>
+  </div>
+</section>

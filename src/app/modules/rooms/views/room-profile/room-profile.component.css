@@ -1,0 +1,36 @@
+.profile-content-container{
+  background-color: #e7e9eb;
+  position: relative;
+  margin-top: 1.4em;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.6em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.profile-action-bar{
+  background-color: #e7e9eb;
+  position: relative;
+  margin-top: 1.4em;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 2em;
+  border-radius: 0.6em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-data-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+h2{
+ font-weight: normal;
+  text-align: center;
+  padding-top: 0.5em;
+}

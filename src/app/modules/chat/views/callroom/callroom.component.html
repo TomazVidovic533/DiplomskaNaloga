@@ -1,0 +1,37 @@
+<div class="videocall-container">
+  <div class="videocall-holder">
+    <video #myStream [autoplay]="true" class="video-frame">1</video>
+    <video #otherStream [autoplay]="true"  class="video-frame">2</video>
+  </div>
+</div>
+
+<div class="videocall-controls-panel">
+  <!-- creator  -->
+
+  <ng-container *ngIf="userData?.id == callData?.creatorId && callData?.status=='waiting'">
+    <button class="video-controll-button-item" (click)="createOffer(callData?.id || '')">Create call</button>
+  </ng-container>
+
+  <ng-container *ngIf="userData?.id == callData?.creatorId && callData?.status=='started'">
+    You started videocall
+  </ng-container>
+
+  <ng-container *ngIf="userData?.id == callData?.creatorId && callData?.status=='active'">
+    <button class="video-controll-button-item" (click)="leave()">Leave Call</button>
+  </ng-container>
+
+
+  <!-- callee  -->
+  <ng-container *ngIf="userData?.id != callData?.creatorId && callData?.status=='waiting'">
+    Waiting for call to start
+  </ng-container>
+
+  <ng-container *ngIf="userData?.id != callData?.creatorId && callData?.status=='started'">
+    <button class="video-controll-button-item" (click)="createAnswer(callData?.id || '')">Join call</button>
+  </ng-container>
+
+  <ng-container *ngIf="userData?.id != callData?.creatorId && callData?.status=='active'">
+    <button class="video-controll-button-item" (click)="leave()">Leave Call</button>
+  </ng-container>
+
+</div>

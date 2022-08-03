@@ -1,0 +1,49 @@
+<section>
+  <div class="row">
+    <h2>{{'features.title' | translate}}</h2>
+  </div>
+  <div class="row">
+    <!-- Column One -->
+    <div class="column" routerLink="/app/people">
+      <div class="card">
+        <div class="icon">
+          <i class="fa-solid fa-headset">
+            <lucide-icon [img]="search" class="svg"></lucide-icon>
+          </i>
+        </div>
+        <h3>{{ 'features.search.title' | translate }}</h3>
+        <p>
+          {{ 'features.search.text' | translate }}
+        </p>
+      </div>
+    </div>
+    <!-- Column Two -->
+    <div class="column" routerLink="/app/chat">
+      <div class="card">
+        <div class="icon">
+          <i class="fa-solid fa-headset">
+            <lucide-icon [img]="chats" class="svg"></lucide-icon>
+          </i>
+        </div>
+        <h3>{{ 'features.chat.title' | translate }}</h3>
+        <p>
+          {{ 'features.chat.text' | translate }}
+        </p>
+      </div>
+    </div>
+    <!-- Column Three -->
+    <div class="column" routerLink="/app/chat">
+      <div class="card">
+        <div class="icon">
+          <i class="fa-solid fa-headset">
+            <lucide-icon [img]="call" class="svg"></lucide-icon>
+          </i>
+        </div>
+        <h3>{{ 'features.videochat.title' | translate }}</h3>
+        <p>
+          {{ 'features.videochat.text' | translate }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

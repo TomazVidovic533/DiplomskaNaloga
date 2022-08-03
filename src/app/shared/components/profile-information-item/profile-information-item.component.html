@@ -1,0 +1,19 @@
+<div class="content-data-container">
+
+  <div class="row-items short-row-item">{{label | translate}}</div>
+
+  <ng-template [ngIf]="!content">
+    <div class="row-items long-row-item"><i>Not set</i></div>
+  </ng-template>
+  <ng-template [ngIf]="content">
+
+    <ng-template [ngIf]="date">
+      <div class="row-items long-row-item"><i>{{date?.toDate() | date: 'medium'}}</i></div>
+    </ng-template>
+
+    <ng-template [ngIf]="date==undefined">
+      <div class="row-items long-row-item"><i>{{content}}</i></div>
+    </ng-template>
+
+  </ng-template>
+</div>

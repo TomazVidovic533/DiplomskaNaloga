@@ -1,0 +1,63 @@
+<ng-template [ngIf]="type=='email'">
+  <div class="field input-field">
+    <input type="email"
+           placeholder="{{placeholderValue}}"
+           class="email"
+           [ngModel]="inputValue"
+           (ngModelChange)="onChange($event)"
+           (blur)="onTouched()">
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="type=='text'">
+  <div class="field input-field">
+    <input type="text"
+           placeholder="{{placeholderValue}}"
+           class="input"
+           [ngModel]="inputValue"
+           (ngModelChange)="onChange($event)"
+           (blur)="onTouched()">
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="type=='password'">
+  <div class="field input-field">
+    <input type="password"
+           placeholder="{{placeholderValue}}"
+           class="password"
+           [ngModel]="inputValue"
+           (ngModelChange)="onChange($event)"
+           (blur)="onTouched()">
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="type=='select'">
+  <div class="field input-field">
+    <select class="text"
+            [ngModel]="inputValue"
+            (ngModelChange)="onChange($event)"
+            (blur)="onTouched()">
+      <ng-container *ngFor="let optionItem of optionItems;">
+        <option>{{optionItem}}</option>
+      </ng-container>
+
+    </select>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="type=='message-input'">
+  <input type="text" class="input-message" [ngModel]="inputValue"
+         (ngModelChange)="onChange($event)"
+         (blur)="onTouched()">
+</ng-template>
+
+
+
+<ng-template [ngIf]="type=='search-input'">
+  <input type="text"
+         class="search-input"
+         placeholder="{{placeholderValue}}"
+         [ngModel]="inputValue"
+         (ngModelChange)="onChange($event)"
+         (blur)="onTouched()">
+</ng-template>

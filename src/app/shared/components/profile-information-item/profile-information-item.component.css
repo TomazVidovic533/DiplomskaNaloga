@@ -1,0 +1,38 @@
+.content-data-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.row-items {
+  width: 1.2em;
+  margin: 1%;
+  height: 2em;
+  padding: 0.5em 0.4em 0.6em;
+}
+
+.short-row-item{
+  flex-grow:1;
+  font-weight: bold;
+  text-align: right;
+}
+
+.long-row-item{
+  flex-grow:4;
+  word-wrap: break-word;
+  height: fit-content;
+  background-color: #f0f2f5;
+  border-radius: 0.6em;
+}
+
+
+@media screen and (max-width: 600px) {
+  .row-items{
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+  .short-row-item{
+    text-align: left;
+  }
+}

@@ -1,0 +1,23 @@
+<div class="error-notification">
+
+<ng-template [ngIf]="formControlInput?.errors?.['required']">
+    {{inputLabel}} is required. <br>
+ </ng-template>
+
+  <ng-template [ngIf]="formControlInput?.errors?.['minlength']">
+    Required length is {{formControlInput?.errors?.['minlength']?.requiredLength}}. <br>
+  </ng-template>
+
+  <ng-template [ngIf]="formControlInput?.errors?.['maxlength']">
+    Maximum length is {{formControlInput?.errors?.['maxlength']?.requiredLength}}. <br>
+  </ng-template>
+
+  <ng-template [ngIf]="formControlInput?.errors?.['email']">
+    Email format is wrong. <br>
+  </ng-template>
+
+  <ng-template [ngIf]="formControlInput?.errors?.['isPasswordComplex']">
+    Password is too weak. Please use lower and upper letters mixed with numbers and special symbols. <br>
+  </ng-template>
+
+</div>

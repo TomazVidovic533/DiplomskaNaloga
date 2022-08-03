@@ -1,0 +1,3 @@
+<app-call-panel [elementId]="(roomData$| async)?.id"></app-call-panel>
+<app-chatroom-message-window [roomId]="((routeListener$| async)?.id)" [myId]="((myUser$ | async)?.id)" [chatMessages$]="chatMessages$"></app-chatroom-message-window>
+<app-send-message-panel [roomId]="((routeListener$| async)?.id)"></app-send-message-panel>

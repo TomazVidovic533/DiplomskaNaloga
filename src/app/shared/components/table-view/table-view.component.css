@@ -1,0 +1,129 @@
+table {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+
+
+table {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+  border-radius: 0.6em;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  table td {
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+.image-item-table{
+  height: 4em;
+  width: 4em;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+
+}
+
+.accept{
+  color: #5eb945;
+}
+
+.see{
+  color: rgba(231, 203, 126, 0.96);
+}
+
+.delete{
+  color: #ce4257;
+}
+
+
+.table-content-container {
+  max-height: 60vh;
+  background-color: #e7e9eb;
+  width: 80%;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #3d3d3d #dcdcdc;
+  overflow-y: auto;
+  margin-top: 1.4em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.6em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 2em;
+}
